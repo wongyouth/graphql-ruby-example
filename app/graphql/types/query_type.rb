@@ -13,5 +13,24 @@ module Types
     def test_field
       "Hello World!"
     end
+
+    field :post, PostType, null: false do
+      argument :id, ID, required: true
+    end
+
+    def post(id: )
+      Post.find id
+    end
+
+
+    field :posts, [PostType], null: false do
+      argument :ids, [ID], required: false
+    end
+
+    def posts(ids: [])
+      posts = Post.all
+      posts = posts.where(id: ids) if ids.present?
+      posts
+    end
   end
 end
