@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Post.create([
+  { title: 'Post 1', truncated_preview: 'great...', content: 'GraphQL is great'},
+  { title: 'Post 2', truncated_preview: 'wonderful...', content: 'GraphQL is wonderful'},
+])
+
+Comment.create([
+  { post_id: 1, content: 'Post 1 Comment'},
+  { post_id: 2, content: 'Post 2 Comment'},
+])
