@@ -27,9 +27,9 @@ module Types
       argument :ids, [ID], required: false
     end
 
-    def posts(ids: [])
+    def posts(ids: nil)
       posts = Post.all
-      posts = posts.where(id: ids) if ids.present?
+      posts = posts.where(id: ids) unless ids.nil?
       posts
     end
   end
